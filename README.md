@@ -22,6 +22,7 @@
 2. **지원 및 특화 수집 타겟**:
    - 💻 **VS Code**: 에디터, 터미널, Copilot AI 섹션별 청킹 및 핵심 3줄 요약.
    - 🐍 **Python (CPython)**: 신규 문법(PEP), 성능(JIT/GIL), 지원 중단(Deprecations) 및 보안 패치.
+   - 💜 **.NET (Platform & C#)**: .NET 런타임 최적화, C# 신규 문법, Native AOT, ASP.NET Core 변경점.
    - 🤖 **Frontier AI 모델 (Gemini, Claude, GPT)**: API 체인지로그, 가격/스펙 변동, 크로스 모델 비교.
 3. **AI 시맨틱 검색 (Vector DB)**:
    - 키워드가 정확히 일치하지 않아도 *"최근 보안 취약점 패치된 버전"*, *"터미널 개선"* 등 의도 기반 검색.

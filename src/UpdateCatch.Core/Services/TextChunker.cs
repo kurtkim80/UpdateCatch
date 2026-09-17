@@ -15,7 +15,8 @@ public static class TextChunker
         { "Breaking Change", new[] { "breaking change", "deprecated", "removed", "deprecation", "backward incompatibility" } },
         { "Pricing", new[] { "pricing", "cost", "price", "token price", "free tier", "$/1m" } },
         { "Context-Window", new[] { "context window", "128k", "200k", "1m tokens", "2m tokens", "tokens" } },
-        { "PEP", new[] { "pep-", "pep ", "pep" } }
+        { "PEP", new[] { "pep-", "pep ", "pep" } },
+        { ".NET/C#", new[] { "c#", ".net", "asp.net", "blazor", "aot", "clr", "f#", "csharp", "dotnet" } }
     };
 
     public static List<VectorDocument> ChunkRelease(ReleaseItem release)

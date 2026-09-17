@@ -39,6 +39,9 @@
     <a asp-page="/Index" asp-route-target="openai" class="btn btn-sm @(Model.SelectedTarget == "openai" ? "btn-primary fw-bold" : "btn-light border")">
         <i class="bi bi-chat-left-dots me-1"></i> OpenAI GPT
     </a>
+    <a asp-page="/Index" asp-route-target="dotnet" class="btn btn-sm @(Model.SelectedTarget == "dotnet" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-microsoft me-1"></i> .NET
+    </a>
 </div>
 
 @if (Model.Releases.Count == 0)

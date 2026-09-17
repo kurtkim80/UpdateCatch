@@ -29,6 +29,7 @@ public class IndexModel : PageModel
         "gemini" => "badge-gemini",
         "claude" => "badge-claude",
         "openai" => "badge-openai",
+        "dotnet" => "badge-dotnet",
         _ => "badge-default"
     };
 

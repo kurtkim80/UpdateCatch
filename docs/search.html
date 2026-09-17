@@ -17,6 +17,7 @@
         .badge-gemini { background-color: #4285f4; color: white; }
         .badge-claude { background-color: #d97706; color: white; }
         .badge-openai { background-color: #10a37f; color: white; }
+        .badge-dotnet { background-color: #512bd4; color: white; }
         .badge-default { background-color: #64748b; color: white; }
         .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
     </style>
@@ -77,6 +78,7 @@
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Claude 프롬프트 캐싱 및 Computer Use')">Claude 캐싱 & 제어</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Python JIT 컴파일러 및 Free-threaded GIL')">Python JIT / GIL</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('OpenAI API 가격 인하 및 Reasoning o1')">OpenAI 가격 인하</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('.NET Native AOT 및 C# 신규 문법')">.NET / C# 최적화</button>
                 </div>
             </div>
         </div>
@@ -185,6 +187,7 @@
                 case 'gemini': return 'badge-gemini';
                 case 'claude': return 'badge-claude';
                 case 'openai': return 'badge-openai';
+                case 'dotnet': return 'badge-dotnet';
                 default: return 'badge-default';
             }
         }

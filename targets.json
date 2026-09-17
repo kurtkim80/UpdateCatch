@@ -48,5 +48,15 @@
     "WebChangelogUrl": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
     "RssUrl": "",
     "Description": "GPT-4o, o1/o3 추론 모델, Canvas, Advanced Voice 및 OpenAI API 업데이트"
+  },
+  {
+    "Id": "dotnet",
+    "Name": ".NET (Platform & C#)",
+    "Category": "Framework / Runtime",
+    "Type": "RssFeed",
+    "SourceUrl": "https://api.github.com/repos/dotnet/core/releases",
+    "WebChangelogUrl": "https://devblogs.microsoft.com/dotnet/",
+    "RssUrl": "https://devblogs.microsoft.com/dotnet/feed/",
+    "Description": ".NET 런타임, C# 신규 문법, ASP.NET Core, Native AOT, Blazor 및 성능 최적화 소식"
   }
 ]
