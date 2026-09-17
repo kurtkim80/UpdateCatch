@@ -52,7 +52,20 @@ dotnet run --project src/UpdateCatch.Collector
 ```bash
 dotnet run --project src/UpdateCatch.Web
 ```
-브라우저에서 `http://localhost:5000` (또는 터미널에 표시된 포트)로 접속합니다.
+
+#### 🌐 웹 페이지 접속 주소
+웹 실행 후 브라우저에서 아래 주소로 접속합니다:
+
+| 페이지 | URL 주소 | 설명 |
+|---|---|---|
+| **🏠 타임라인 피드 (메인)** | [http://localhost:5028/](http://localhost:5028/) | 최신 수집 릴리즈 시간순 피드, AI 3줄 요약 |
+| **🔍 AI 시맨틱 검색** | [http://localhost:5028/Search](http://localhost:5028/Search) | 자연어 의도 기반 Vector DB 유사도 검색 |
+| **🎯 모니터링 타겟 관리** | [http://localhost:5028/Targets](http://localhost:5028/Targets) | 추적 중인 소프트웨어 및 신규 타겟 가이드 |
+| **💻 VS Code 전용 피드** | [http://localhost:5028/?target=vscode](http://localhost:5028/?target=vscode) | VS Code 릴리즈만 필터링 |
+| **🐍 Python 전용 피드** | [http://localhost:5028/?target=python](http://localhost:5028/?target=python) | Python 릴리즈만 필터링 |
+| **🤖 Frontier AI 피드** | [http://localhost:5028/?target=claude](http://localhost:5028/?target=claude) | Claude, Gemini, OpenAI 모델별 필터링 |
+
+> *(참고: HTTPS 개발 인증서 사용 시 `https://localhost:7296/`로도 접속 가능합니다)*
 
 ---
 
