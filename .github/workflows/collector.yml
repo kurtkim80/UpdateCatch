@@ -1,0 +1,48 @@
+name: Scheduled Release Collector
+
+on:
+  schedule:
+    # 6시간마다 자동 실행 (UTC 기준 0시, 6시, 12시, 18시)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # GitHub Actions 탭에서 수동 실행 가능
+  push:
+    paths:
+      - 'targets.json'
+
+permissions:
+  contents: write
+
+jobs:
+  collect-and-update:
+    runs-on: ubuntu-latest
+    name: Collect Releases & Update Vector DB
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Run UpdateCatch Collector
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          dotnet run --project src/UpdateCatch.Collector/UpdateCatch.Collector.csproj
+
+      - name: Commit and Push Updated Data
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No new updates found. Working tree clean."
+          else
+            git commit -m "chore(auto): update releases and vector embeddings [skip ci]"
+            git push
+          fi

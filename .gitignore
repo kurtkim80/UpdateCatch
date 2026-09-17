@@ -1,0 +1,41 @@
+## .NET / C# Build Artifacts
+bin/
+obj/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+## Visual Studio & IDEs
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.DotSettings.user
+
+## OS Files
+.DS_Store
+Thumbs.db
+Library/
+*.slnx
+
+## Secrets & Local Environments
+appsettings.Development.json
+appsettings.Local.json
+*.env
+*.local
+secrets.json
+.secrets/
+
+## Logs
+logs/
+*.log

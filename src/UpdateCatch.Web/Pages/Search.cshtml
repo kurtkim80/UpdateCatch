@@ -1,0 +1,115 @@
+@page
+@model SearchModel
+@{
+    ViewData["Title"] = "AI 시맨틱 검색";
+}
+
+<div class="row justify-content-center mb-5">
+    <div class="col-lg-10 text-center">
+        <h2 class="fw-bold mb-2">
+            <i class="bi bi-stars text-primary me-2"></i>AI 시맨틱 검색 (Vector DB)
+        </h2>
+        <p class="text-muted mb-4">키워드가 정확히 일치하지 않아도, 질문의 의미와 의도를 분석하여 가장 관련성 높은 업데이트 내역을 찾아냅니다.</p>
+
+        <!-- 검색창 Form -->
+        <form method="get" class="mb-3">
+            <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden border">
+                <span class="input-group-text bg-white border-0 ps-3">
+                    <i class="bi bi-search text-primary"></i>
+                </span>
+                <input type="text" name="Query" value="@Model.Query" class="form-control border-0 py-3" placeholder="예: 'VS Code 터미널 바뀐 점', '보안 취약점 패치', 'Claude 프롬프트 캐싱'..." autofocus />
+                <button type="submit" class="btn btn-primary px-4 fw-bold">
+                    검색
+                </button>
+            </div>
+            
+            @if (!string.IsNullOrEmpty(Model.Target))
+            {
+                <input type="hidden" name="Target" value="@Model.Target" />
+            }
+        </form>
+
+        <!-- 추천 검색어 칩 -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
+            <span class="small text-muted me-1"><i class="bi bi-lightbulb me-1"></i>추천 검색어:</span>
+            <a asp-page="/Search" asp-route-Query="VS Code 터미널 개선 및 단축키" class="btn btn-sm btn-light border rounded-pill">VS Code 터미널 개선</a>
+            <a asp-page="/Search" asp-route-Query="보안 취약점 패치 및 CVE 해결" class="btn btn-sm btn-light border rounded-pill">보안 패치</a>
+            <a asp-page="/Search" asp-route-Query="Claude 프롬프트 캐싱 및 Computer Use" class="btn btn-sm btn-light border rounded-pill">Claude 캐싱 & 제어</a>
+            <a asp-page="/Search" asp-route-Query="Python JIT 컴파일러 및 Free-threaded GIL 성능 최적화" class="btn btn-sm btn-light border rounded-pill">Python JIT / GIL</a>
+            <a asp-page="/Search" asp-route-Query="OpenAI API 가격 인하 및 Reasoning o1 모델" class="btn btn-sm btn-light border rounded-pill">OpenAI 가격 인하</a>
+        </div>
+    </div>
+</div>
+
+@if (Model.HasSearched)
+{
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0">
+            검색 결과 <span class="badge bg-primary rounded-pill">@Model.Results.Count</span>건
+            <span class="text-muted small fw-normal ms-2">"@(Model.Query)" 기준 유사도 순 정렬</span>
+        </h5>
+    </div>
+
+    @if (Model.Results.Count == 0)
+    {
+        <div class="card p-5 text-center bg-white border-0 shadow-sm rounded-4">
+            <h5 class="fw-bold text-secondary">일치하는 업데이트 섹션을 찾지 못했습니다</h5>
+            <p class="text-muted">다른 질의어로 검색해 보거나 먼저 데이터를 수집해 보세요.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var res in Model.Results)
+            {
+                var doc = res.Document;
+                int matchScore = (int)Math.Clamp(res.Score * 100, 0, 100);
+
+                <div class="col-12">
+                    <div class="card card-custom bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge badge-target @Model.GetBadgeClass(doc.TargetId)">
+                                    @doc.TargetName
+                                </span>
+                                <span class="badge bg-secondary-subtle text-secondary">버전: @doc.Version</span>
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>@doc.PublishedAt.ToString("yyyy-MM-dd")
+                                </small>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
+                                    <i class="bi bi-check-circle me-1"></i>유사도 @matchScore%
+                                </span>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-dark mt-1 mb-2">
+                            @doc.SectionTitle
+                        </h5>
+
+                        <div class="mb-3">
+                            @foreach (var tag in doc.Tags)
+                            {
+                                <span class="tag-pill">#@tag</span>
+                            }
+                        </div>
+
+                        <div class="bg-light p-3 rounded-3 text-secondary small font-monospace mb-3" style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">
+                            @doc.Content
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(doc.Url))
+                        {
+                            <div class="text-end">
+                                <a href="@doc.Url" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary">
+                                    원문 링크 확인 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}

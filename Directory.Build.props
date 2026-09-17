@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Disable NuGet Audit network check during offline/sandboxed builds -->
+    <NuGetAudit>false</NuGetAudit>
+  </PropertyGroup>
+</Project>

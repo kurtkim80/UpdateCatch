@@ -1,0 +1,114 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "최신 업데이트 피드";
+}
+
+<div class="row mb-4 align-items-center">
+    <div class="col-md-7">
+        <h2 class="fw-bold mb-1">
+            <i class="bi bi-clock-history text-primary me-2"></i>최신 업데이트 타임라인
+        </h2>
+        <p class="text-muted mb-0">주요 소프트웨어 및 Frontier AI 모델의 릴리즈 소식을 자동으로 수집하여 요약합니다.</p>
+    </div>
+    <div class="col-md-5 text-md-end mt-3 mt-md-0">
+        <a asp-page="/Search" class="btn btn-outline-primary fw-semibold me-2">
+            <i class="bi bi-stars me-1"></i> AI 시맨틱 검색
+        </a>
+        <a asp-page="/Targets" class="btn btn-light border fw-semibold">
+            <i class="bi bi-gear me-1"></i> 타겟 관리
+        </a>
+    </div>
+</div>
+
+<!-- 필터 칩 -->
+<div class="d-flex flex-wrap gap-2 mb-4 pb-2 border-bottom">
+    <a asp-page="/Index" class="btn btn-sm @(string.IsNullOrEmpty(Model.SelectedTarget) ? "btn-dark fw-bold" : "btn-light border")">전체 보기</a>
+    <a asp-page="/Index" asp-route-target="vscode" class="btn btn-sm @(Model.SelectedTarget == "vscode" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-code-square me-1"></i> VS Code
+    </a>
+    <a asp-page="/Index" asp-route-target="python" class="btn btn-sm @(Model.SelectedTarget == "python" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-filetype-py me-1"></i> Python
+    </a>
+    <a asp-page="/Index" asp-route-target="gemini" class="btn btn-sm @(Model.SelectedTarget == "gemini" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-google me-1"></i> Google Gemini
+    </a>
+    <a asp-page="/Index" asp-route-target="claude" class="btn btn-sm @(Model.SelectedTarget == "claude" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-robot me-1"></i> Anthropic Claude
+    </a>
+    <a asp-page="/Index" asp-route-target="openai" class="btn btn-sm @(Model.SelectedTarget == "openai" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-chat-left-dots me-1"></i> OpenAI GPT
+    </a>
+</div>
+
+@if (Model.Releases.Count == 0)
+{
+    <div class="card p-5 text-center bg-white border-0 shadow-sm rounded-4">
+        <div class="mb-3">
+            <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
+        </div>
+        <h5 class="fw-bold">수집된 릴리즈 노트가 없습니다</h5>
+        <p class="text-muted">GitHub Actions가 실행되거나 수집기를 실행하여 최신 업데이트 데이터를 수집해 보세요.</p>
+        <div class="mt-2">
+            <code>dotnet run --project src/UpdateCatch.Collector</code>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row g-4">
+        @foreach (var rel in Model.Releases)
+        {
+            <div class="col-lg-6">
+                <div class="card card-custom h-100 bg-white p-4 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <span class="badge badge-target @Model.GetBadgeClass(rel.TargetId)">
+                            @rel.TargetName
+                        </span>
+                        <small class="text-muted">
+                            <i class="bi bi-calendar3 me-1"></i>@rel.PublishedAt.ToString("yyyy-MM-dd")
+                        </small>
+                    </div>
+
+                    <h5 class="fw-bold text-dark mb-2 mt-1">
+                        @rel.Title
+                    </h5>
+
+                    <!-- 태그 목록 -->
+                    <div class="mb-3">
+                        @foreach (var tag in rel.Tags)
+                        {
+                            <span class="tag-pill @Model.GetTagClass(tag)">#@tag</span>
+                        }
+                    </div>
+
+                    <!-- AI 핵심 3줄 요약 (Key Takeaways) -->
+                    @if (rel.KeyTakeaways.Count > 0)
+                    {
+                        <div class="p-3 bg-light rounded-3 mb-3 border-start border-4 border-primary">
+                            <div class="fw-semibold small text-primary mb-1">
+                                <i class="bi bi-lightning-charge-fill me-1"></i>핵심 하이라이트 요약
+                            </div>
+                            <ul class="mb-0 ps-3 small text-secondary">
+                                @foreach (var takeaway in rel.KeyTakeaways)
+                                {
+                                    <li class="mb-1">@takeaway</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                        <span class="badge bg-secondary-subtle text-secondary">버전: @rel.Version</span>
+                        @if (!string.IsNullOrEmpty(rel.HtmlUrl))
+                        {
+                            <a href="@rel.HtmlUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark">
+                                공식 원문 보기 <i class="bi bi-box-arrow-up-right ms-1"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
