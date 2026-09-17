@@ -18,6 +18,8 @@
         .badge-claude { background-color: #d97706; color: white; }
         .badge-openai { background-color: #10a37f; color: white; }
         .badge-dotnet { background-color: #512bd4; color: white; }
+        .badge-macos { background-color: #1d1d1f; color: white; }
+        .badge-windows { background-color: #0078d4; color: white; }
         .badge-default { background-color: #64748b; color: white; }
         .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
     </style>
@@ -79,6 +81,8 @@
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Python JIT 컴파일러 및 Free-threaded GIL')">Python JIT / GIL</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('OpenAI API 가격 인하 및 Reasoning o1')">OpenAI 가격 인하</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('.NET Native AOT 및 C# 신규 문법')">.NET / C# 최적화</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('macOS Sequoia 신규 기능 및 Apple Intelligence')">macOS Sequoia</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Windows 11 24H2 Copilot+ PC 업데이트')">Windows 11 업데이트</button>
                 </div>
             </div>
         </div>
@@ -188,6 +192,8 @@
                 case 'claude': return 'badge-claude';
                 case 'openai': return 'badge-openai';
                 case 'dotnet': return 'badge-dotnet';
+                case 'macos': return 'badge-macos';
+                case 'windows': return 'badge-windows';
                 default: return 'badge-default';
             }
         }

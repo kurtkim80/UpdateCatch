@@ -42,6 +42,12 @@
     <a asp-page="/Index" asp-route-target="dotnet" class="btn btn-sm @(Model.SelectedTarget == "dotnet" ? "btn-primary fw-bold" : "btn-light border")">
         <i class="bi bi-microsoft me-1"></i> .NET
     </a>
+    <a asp-page="/Index" asp-route-target="macos" class="btn btn-sm @(Model.SelectedTarget == "macos" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-apple me-1"></i> macOS
+    </a>
+    <a asp-page="/Index" asp-route-target="windows" class="btn btn-sm @(Model.SelectedTarget == "windows" ? "btn-primary fw-bold" : "btn-light border")">
+        <i class="bi bi-windows me-1"></i> Windows
+    </a>
 </div>
 
 @if (Model.Releases.Count == 0)

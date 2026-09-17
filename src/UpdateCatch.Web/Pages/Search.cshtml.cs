@@ -49,6 +49,8 @@ public class SearchModel : PageModel
         "claude" => "badge-claude",
         "openai" => "badge-openai",
         "dotnet" => "badge-dotnet",
+        "macos" => "badge-macos",
+        "windows" => "badge-windows",
         _ => "badge-default"
     };
 }

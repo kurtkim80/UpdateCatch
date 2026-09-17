@@ -444,7 +444,9 @@
       "Breaking Change",
       "Pricing",
       "Context-Window",
-      ".NET/C#"
+      ".NET/C#",
+      "macOS",
+      "Windows"
     ],
     "Vector": [
       0.049360346,

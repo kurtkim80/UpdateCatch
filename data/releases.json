@@ -35,7 +35,9 @@
       "Breaking Change",
       "Pricing",
       "Context-Window",
-      ".NET/C#"
+      ".NET/C#",
+      "macOS",
+      "Windows"
     ],
     "KeyTakeaways": [
       "Release notesClaude Platform release notesSubscribe\uE056Copy page\uE027Updates to the Claude Platform, including the Claude API, client SDKs, and the Claude Console.Subscribe\uE056Copy page\uE027The Claude Platform release notes list changes to the Claude API, the client SDKs, and the Claude Console, newest first."

@@ -58,5 +58,25 @@
     "WebChangelogUrl": "https://devblogs.microsoft.com/dotnet/",
     "RssUrl": "https://devblogs.microsoft.com/dotnet/feed/",
     "Description": ".NET 런타임, C# 신규 문법, ASP.NET Core, Native AOT, Blazor 및 성능 최적화 소식"
+  },
+  {
+    "Id": "macos",
+    "Name": "Apple macOS",
+    "Category": "Operating System",
+    "Type": "RssFeed",
+    "SourceUrl": "https://developer.apple.com/news/releases/",
+    "WebChangelogUrl": "https://support.apple.com/en-us/HT201222",
+    "RssUrl": "https://developer.apple.com/news/rss/news.rss",
+    "Description": "macOS Sequoia/Sonoma 메이저 릴리즈, 보안 취약점 패치, Apple Intelligence 및 시스템 변경점"
+  },
+  {
+    "Id": "windows",
+    "Name": "Microsoft Windows",
+    "Category": "Operating System",
+    "Type": "RssFeed",
+    "SourceUrl": "https://blogs.windows.com/windowsdeveloper/",
+    "WebChangelogUrl": "https://support.microsoft.com/en-us/help/5003244",
+    "RssUrl": "https://blogs.windows.com/feed/",
+    "Description": "Windows 11 24H2, Copilot+ PC 기능, 누적 보안 업데이트(KB 패치) 및 OS 성능 개선 소식"
   }
 ]

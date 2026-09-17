@@ -19,6 +19,8 @@
         .badge-claude { background-color: #d97706; color: white; }
         .badge-openai { background-color: #10a37f; color: white; }
         .badge-dotnet { background-color: #512bd4; color: white; }
+        .badge-macos { background-color: #1d1d1f; color: white; }
+        .badge-windows { background-color: #0078d4; color: white; }
         .badge-default { background-color: #64748b; color: white; }
         .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
         .tag-ai { background-color: #f3e8ff; color: #7e22ce; }
@@ -91,6 +93,8 @@
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('claude')"><i class="bi bi-robot me-1"></i> Anthropic Claude</button>
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('openai')"><i class="bi bi-chat-left-dots me-1"></i> OpenAI GPT</button>
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('dotnet')"><i class="bi bi-microsoft me-1"></i> .NET</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('macos')"><i class="bi bi-apple me-1"></i> macOS</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('windows')"><i class="bi bi-windows me-1"></i> Windows</button>
         </div>
 
         <!-- 로딩 상태 -->
@@ -142,6 +146,8 @@
                 case 'claude': return 'badge-claude';
                 case 'openai': return 'badge-openai';
                 case 'dotnet': return 'badge-dotnet';
+                case 'macos': return 'badge-macos';
+                case 'windows': return 'badge-windows';
                 default: return 'badge-default';
             }
         }
