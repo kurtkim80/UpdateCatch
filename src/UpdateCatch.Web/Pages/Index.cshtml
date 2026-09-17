@@ -48,6 +48,21 @@
     <a asp-page="/Index" asp-route-target="windows" class="btn btn-sm @(Model.SelectedTarget == "windows" ? "btn-primary fw-bold" : "btn-light border")">
         <i class="bi bi-windows me-1"></i> Windows
     </a>
+    <a asp-page="/Index" asp-route-target="linux-kernel" class="btn btn-sm @(Model.SelectedTarget == "linux-kernel" ? "btn-warning fw-bold text-dark" : "btn-light border")">
+        <i class="bi bi-terminal me-1"></i> Linux Kernel
+    </a>
+    <a asp-page="/Index" asp-route-target="ubuntu" class="btn btn-sm @(Model.SelectedTarget == "ubuntu" ? "btn-danger fw-bold" : "btn-light border")">
+        Ubuntu
+    </a>
+    <a asp-page="/Index" asp-route-target="debian" class="btn btn-sm @(Model.SelectedTarget == "debian" ? "btn-danger fw-bold" : "btn-light border")">
+        Debian
+    </a>
+    <a asp-page="/Index" asp-route-target="fedora" class="btn btn-sm @(Model.SelectedTarget == "fedora" ? "btn-primary fw-bold" : "btn-light border")">
+        Fedora
+    </a>
+    <a asp-page="/Index" asp-route-target="archlinux" class="btn btn-sm @(Model.SelectedTarget == "archlinux" ? "btn-info fw-bold" : "btn-light border")">
+        Arch Linux
+    </a>
 </div>
 
 @if (Model.Releases.Count == 0)

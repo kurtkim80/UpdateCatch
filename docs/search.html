@@ -20,6 +20,11 @@
         .badge-dotnet { background-color: #512bd4; color: white; }
         .badge-macos { background-color: #1d1d1f; color: white; }
         .badge-windows { background-color: #0078d4; color: white; }
+        .badge-linux-kernel { background-color: #f59e0b; color: #1e293b; font-weight: 700; }
+        .badge-ubuntu { background-color: #e95420; color: white; }
+        .badge-debian { background-color: #d70a53; color: white; }
+        .badge-fedora { background-color: #3b82f6; color: white; }
+        .badge-archlinux { background-color: #06b6d4; color: white; }
         .badge-default { background-color: #64748b; color: white; }
         .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
     </style>
@@ -83,6 +88,8 @@
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('.NET Native AOT 및 C# 신규 문법')">.NET / C# 최적화</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('macOS Sequoia 신규 기능 및 Apple Intelligence')">macOS Sequoia</button>
                     <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Windows 11 24H2 Copilot+ PC 업데이트')">Windows 11 업데이트</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Linux Kernel 6.x 커널 릴리즈 및 Btrfs 성능')">Linux Kernel</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Ubuntu 24.04 LTS 기능 및 패키지')">Ubuntu LTS</button>
                 </div>
             </div>
         </div>
@@ -194,6 +201,11 @@
                 case 'dotnet': return 'badge-dotnet';
                 case 'macos': return 'badge-macos';
                 case 'windows': return 'badge-windows';
+                case 'linux-kernel': return 'badge-linux-kernel';
+                case 'ubuntu': return 'badge-ubuntu';
+                case 'debian': return 'badge-debian';
+                case 'fedora': return 'badge-fedora';
+                case 'archlinux': return 'badge-archlinux';
                 default: return 'badge-default';
             }
         }

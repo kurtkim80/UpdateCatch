@@ -25,6 +25,12 @@
    - 💜 **.NET (Platform & C#)**: .NET 런타임 최적화, C# 신규 문법, Native AOT, ASP.NET Core 변경점.
    - 🍏 **Apple macOS**: macOS Sequoia/Sonoma 릴리즈, Apple Intelligence, 보안 취약점 패치.
    - 🪟 **Microsoft Windows**: Windows 11 24H2, Copilot+ PC 기능, 누적 보안 업데이트(KB).
+   - 🐧 **Linux 생태계 5대 대표 타겟**:
+     - 👑 **Linux Kernel**: Linus Torvalds 메인라인/LTS 커널 릴리즈(6.x), Btrfs, 하드웨어 드라이버.
+     - 🟠 **Ubuntu**: Canonical 우분투 LTS/정규 릴리즈(24.04 Noble Numbat), 클라우드/데스크톱 기능.
+     - 🔴 **Debian**: 데비안 안정판(Bookworm, Trixie), 보안 권고(DSA) 및 패키지 업데이트.
+     - 🔵 **Fedora**: 최신 그놈/KDE, Wayland, 첨단 리눅스 기술 도입 소식.
+     - 🔷 **Arch Linux**: 롤링 릴리즈 공식 공지, 패키지 마이그레이션 및 커널 패치.
    - 🤖 **Frontier AI 모델 (Gemini, Claude, GPT)**: API 체인지로그, 가격/스펙 변동, 크로스 모델 비교.
 3. **AI 시맨틱 검색 (Vector DB)**:
    - 키워드가 정확히 일치하지 않아도 *"최근 보안 취약점 패치된 버전"*, *"터미널 개선"* 등 의도 기반 검색.

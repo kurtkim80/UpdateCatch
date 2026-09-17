@@ -21,6 +21,11 @@
         .badge-dotnet { background-color: #512bd4; color: white; }
         .badge-macos { background-color: #1d1d1f; color: white; }
         .badge-windows { background-color: #0078d4; color: white; }
+        .badge-linux-kernel { background-color: #f59e0b; color: #1e293b; font-weight: 700; }
+        .badge-ubuntu { background-color: #e95420; color: white; }
+        .badge-debian { background-color: #d70a53; color: white; }
+        .badge-fedora { background-color: #3b82f6; color: white; }
+        .badge-archlinux { background-color: #06b6d4; color: white; }
         .badge-default { background-color: #64748b; color: white; }
         .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
         .tag-ai { background-color: #f3e8ff; color: #7e22ce; }
@@ -95,6 +100,11 @@
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('dotnet')"><i class="bi bi-microsoft me-1"></i> .NET</button>
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('macos')"><i class="bi bi-apple me-1"></i> macOS</button>
             <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('windows')"><i class="bi bi-windows me-1"></i> Windows</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('linux-kernel')"><i class="bi bi-terminal me-1"></i> Linux Kernel</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('ubuntu')"><i class="bi bi-circle-fill text-warning me-1"></i> Ubuntu</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('debian')"><i class="bi bi-circle-fill text-danger me-1"></i> Debian</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('fedora')"><i class="bi bi-circle-fill text-primary me-1"></i> Fedora</button>
+            <button class="btn btn-sm btn-light border filter-btn" onclick="filterReleases('archlinux')"><i class="bi bi-circle-fill text-info me-1"></i> Arch</button>
         </div>
 
         <!-- 로딩 상태 -->
@@ -148,6 +158,11 @@
                 case 'dotnet': return 'badge-dotnet';
                 case 'macos': return 'badge-macos';
                 case 'windows': return 'badge-windows';
+                case 'linux-kernel': return 'badge-linux-kernel';
+                case 'ubuntu': return 'badge-ubuntu';
+                case 'debian': return 'badge-debian';
+                case 'fedora': return 'badge-fedora';
+                case 'archlinux': return 'badge-archlinux';
                 default: return 'badge-default';
             }
         }

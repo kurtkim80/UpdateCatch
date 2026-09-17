@@ -18,7 +18,8 @@ public static class TextChunker
         { "PEP", new[] { "pep-", "pep ", "pep" } },
         { ".NET/C#", new[] { "c#", ".net", "asp.net", "blazor", "aot", "clr", "f#", "csharp", "dotnet" } },
         { "macOS", new[] { "macos", "apple", "sequoia", "sonoma", "ios", "xcode", "apple intelligence", "darwin" } },
-        { "Windows", new[] { "windows", "win11", "win10", "microsoft windows", "copilot+", "surface", "directx" } }
+        { "Windows", new[] { "windows", "win11", "win10", "microsoft windows", "copilot+", "surface", "directx" } },
+        { "Linux/Kernel", new[] { "linux", "kernel", "ubuntu", "debian", "fedora", "arch", "distro", "wayland", "gnome", "kde", "systemd", "btrfs", "ext4" } }
     };
 
     public static List<VectorDocument> ChunkRelease(ReleaseItem release)

@@ -32,6 +32,11 @@ public class IndexModel : PageModel
         "dotnet" => "badge-dotnet",
         "macos" => "badge-macos",
         "windows" => "badge-windows",
+        "linux-kernel" => "badge-linux-kernel",
+        "ubuntu" => "badge-ubuntu",
+        "debian" => "badge-debian",
+        "fedora" => "badge-fedora",
+        "archlinux" => "badge-archlinux",
         _ => "badge-default"
     };
 

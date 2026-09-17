@@ -37,7 +37,8 @@
       "Context-Window",
       ".NET/C#",
       "macOS",
-      "Windows"
+      "Windows",
+      "Linux/Kernel"
     ],
     "KeyTakeaways": [
       "Release notesClaude Platform release notesSubscribe\uE056Copy page\uE027Updates to the Claude Platform, including the Claude API, client SDKs, and the Claude Console.Subscribe\uE056Copy page\uE027The Claude Platform release notes list changes to the Claude API, the client SDKs, and the Claude Console, newest first."
@@ -372,6 +373,40 @@
     "KeyTakeaways": []
   },
   {
+    "Id": "ubuntu-20260917-8699",
+    "TargetId": "ubuntu",
+    "TargetName": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Android\u2122 development shouldn\u2019t start with a physical device",
+    "PublishedAt": "2026-09-17T12:43:46Z",
+    "Body": "How on-demand Android environments lay the foundation for Android engineering Software engineering has evolved dramatically over the last decade. Development environments that once depended on dedicated hardware have become resources that can be provisioned, configured, and removed on demand. Infrastructure is now expected to be reproducible, automated, and integrated into continuous development workflows. However, Android [\u0026hellip;]\n",
+    "HtmlUrl": "https://ubuntu.com//blog/android-development-shouldnt-start-with-a-physical-device",
+    "Tags": [
+      "Breaking Change"
+    ],
+    "KeyTakeaways": [
+      "How on-demand Android environments lay the foundation for Android engineering Software engineering has evolved dramatically over the last decade. Development environments that once depended on dedicated hardware have become resources that can be provisioned, configured, and removed on demand. Infrastructure is now expected to be reproducible, automated, and integrated into continuous development workflows. However, Android [\u0026hellip;]"
+    ]
+  },
+  {
+    "Id": "ubuntu-20260917-6562",
+    "TargetId": "ubuntu",
+    "TargetName": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Android\u2122 development shouldn\u2019t start with a physical device",
+    "PublishedAt": "2026-09-17T12:43:46Z",
+    "Body": "How on-demand Android environments lay the foundation for Android engineering Software engineering has evolved dramatically over the last decade. Development environments that once depended on dedicated hardware have become resources that can be provisioned, configured, and removed on demand. Infrastructure is now expected to be reproducible, automated, and integrated into continuous development workflows. However, Android [\u0026hellip;]\n",
+    "HtmlUrl": "https://ubuntu.com//blog/android-development-shouldnt-start-with-a-physical-device",
+    "Tags": [
+      "Breaking Change"
+    ],
+    "KeyTakeaways": [
+      "How on-demand Android environments lay the foundation for Android engineering Software engineering has evolved dramatically over the last decade. Development environments that once depended on dedicated hardware have become resources that can be provisioned, configured, and removed on demand. Infrastructure is now expected to be reproducible, automated, and integrated into continuous development workflows. However, Android [\u0026hellip;]"
+    ]
+  },
+  {
     "Id": "dotnet-20260916-6777",
     "TargetId": "dotnet",
     "TargetName": ".NET (Platform \u0026 C#)",
@@ -494,6 +529,114 @@
     "Tags": [],
     "KeyTakeaways": [
       "https://code.visualstudio.com/updates/v1_138"
+    ]
+  },
+  {
+    "Id": "ubuntu-20260915-5578",
+    "TargetId": "ubuntu",
+    "TargetName": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Bring Zenoh to ROS 2 with snaps",
+    "PublishedAt": "2026-09-15T15:07:15Z",
+    "Body": "ROS 2 gives robotics developers the freedom to choose the middleware that fits their system. As a communication protocol for ROS, Zenoh has gained strong traction. It delivers proven performance and stability while giving developers explicit control over node discovery. Zenoh is a lightweight, high-performance communication protocol designed for robotics and distributed systems. Supporting publisher/subscriber [\u0026hellip;]\n",
+    "HtmlUrl": "https://ubuntu.com//blog/bring-zenoh-to-ros-2-with-snaps",
+    "Tags": [
+      "Copilot/AI",
+      "Performance"
+    ],
+    "KeyTakeaways": [
+      "ROS 2 gives robotics developers the freedom to choose the middleware that fits their system. As a communication protocol for ROS, Zenoh has gained strong traction. It delivers proven performance and stability while giving developers explicit control over node discovery. Zenoh is a lightweight, high-performance communication protocol designed for robotics and distributed systems. Supporting publisher/subscriber [\u0026hellip;]"
+    ]
+  },
+  {
+    "Id": "ubuntu-20260915-9732",
+    "TargetId": "ubuntu",
+    "TargetName": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Bring Zenoh to ROS 2 with snaps",
+    "PublishedAt": "2026-09-15T15:07:15Z",
+    "Body": "ROS 2 gives robotics developers the freedom to choose the middleware that fits their system. As a communication protocol for ROS, Zenoh has gained strong traction. It delivers proven performance and stability while giving developers explicit control over node discovery. Zenoh is a lightweight, high-performance communication protocol designed for robotics and distributed systems. Supporting publisher/subscriber [\u0026hellip;]\n",
+    "HtmlUrl": "https://ubuntu.com//blog/bring-zenoh-to-ros-2-with-snaps",
+    "Tags": [
+      "Copilot/AI",
+      "Performance"
+    ],
+    "KeyTakeaways": [
+      "ROS 2 gives robotics developers the freedom to choose the middleware that fits their system. As a communication protocol for ROS, Zenoh has gained strong traction. It delivers proven performance and stability while giving developers explicit control over node discovery. Zenoh is a lightweight, high-performance communication protocol designed for robotics and distributed systems. Supporting publisher/subscriber [\u0026hellip;]"
+    ]
+  },
+  {
+    "Id": "fedora-20260915-5066",
+    "TargetId": "fedora",
+    "TargetName": "Fedora Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Announcing Fedora Linux Asahi Remix 45 Beta",
+    "PublishedAt": "2026-09-15T14:05:00Z",
+    "Body": "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]",
+    "HtmlUrl": "https://fedoramagazine.org/announcing-fedora_asahi_remix_45_beta/",
+    "Tags": [
+      "Copilot/AI",
+      "macOS",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]"
+    ]
+  },
+  {
+    "Id": "fedora-20260915-8261",
+    "TargetId": "fedora",
+    "TargetName": "Fedora Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Announcing Fedora Linux 45 Beta",
+    "PublishedAt": "2026-09-15T14:05:00Z",
+    "Body": "Fedora Linux 45 Beta is here! On Tuesday, 15 September 2026 you can download or upgrade your systems from your usual spots to start enjoying what F45 has to offer early. How to get the beta release You can download F45 Beta, or our pre-release edition versions, from any of the following places: You can [\u0026#8230;]",
+    "HtmlUrl": "https://fedoramagazine.org/announcing-fedora-linux-45-beta/",
+    "Tags": [
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "Fedora Linux 45 Beta is here! On Tuesday, 15 September 2026 you can download or upgrade your systems from your usual spots to start enjoying what F45 has to offer early. How to get the beta release You can download F45 Beta, or our pre-release edition versions, from any of the following places: You can [\u0026#8230;]"
+    ]
+  },
+  {
+    "Id": "fedora-20260915-8689",
+    "TargetId": "fedora",
+    "TargetName": "Fedora Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Announcing Fedora Linux Asahi Remix 45 Beta",
+    "PublishedAt": "2026-09-15T14:05:00Z",
+    "Body": "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]",
+    "HtmlUrl": "https://fedoramagazine.org/announcing-fedora_asahi_remix_45_beta/",
+    "Tags": [
+      "Copilot/AI",
+      "macOS",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]"
+    ]
+  },
+  {
+    "Id": "fedora-20260915-3046",
+    "TargetId": "fedora",
+    "TargetName": "Fedora Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Announcing Fedora Linux 45 Beta",
+    "PublishedAt": "2026-09-15T14:05:00Z",
+    "Body": "Fedora Linux 45 Beta is here! On Tuesday, 15 September 2026 you can download or upgrade your systems from your usual spots to start enjoying what F45 has to offer early. How to get the beta release You can download F45 Beta, or our pre-release edition versions, from any of the following places: You can [\u0026#8230;]",
+    "HtmlUrl": "https://fedoramagazine.org/announcing-fedora-linux-45-beta/",
+    "Tags": [
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "Fedora Linux 45 Beta is here! On Tuesday, 15 September 2026 you can download or upgrade your systems from your usual spots to start enjoying what F45 has to offer early. How to get the beta release You can download F45 Beta, or our pre-release edition versions, from any of the following places: You can [\u0026#8230;]"
     ]
   },
   {
@@ -683,6 +826,192 @@
     "Tags": [],
     "KeyTakeaways": [
       "https://code.visualstudio.com/updates/v1_136"
+    ]
+  },
+  {
+    "Id": "debian-20260907-9038",
+    "TargetId": "debian",
+    "TargetName": "Debian Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "New Debian Developers and Maintainers (July and August 2026)",
+    "PublishedAt": "2026-09-07T21:00:00Z",
+    "Body": "New Debian Developers and Maintainers (July and August 2026)",
+    "HtmlUrl": "https://bits.debian.org/2026/09/new-developers-2026-09.html",
+    "Tags": [
+      "Copilot/AI",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": []
+  },
+  {
+    "Id": "linux-kernel-20260902-9937",
+    "TargetId": "linux-kernel",
+    "TargetName": "Linux Kernel",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "7.1.13: stable",
+    "PublishedAt": "2026-09-02T12:32:43Z",
+    "Body": "\n            \n                Version:7.1.13 (EOL) (stable)\n                Released:2026-09-02\n            \n                Source:linux-7.1.13.tar.xz\n                PGP Signature:linux-7.1.13.tar.sign\n                Patch:full (incremental)\n                ChangeLog:ChangeLog-7.1.13\n            ",
+    "HtmlUrl": "https://www.kernel.org/",
+    "Tags": [
+      "Security",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      ""
+    ]
+  },
+  {
+    "Id": "linux-kernel-20260902-339",
+    "TargetId": "linux-kernel",
+    "TargetName": "Linux Kernel",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "7.1.13: stable",
+    "PublishedAt": "2026-09-02T12:32:43Z",
+    "Body": "\n            \n                Version:7.1.13 (EOL) (stable)\n                Released:2026-09-02\n            \n                Source:linux-7.1.13.tar.xz\n                PGP Signature:linux-7.1.13.tar.sign\n                Patch:full (incremental)\n                ChangeLog:ChangeLog-7.1.13\n            ",
+    "HtmlUrl": "https://www.kernel.org/",
+    "Tags": [
+      "Security",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      ""
+    ]
+  },
+  {
+    "Id": "debian-20260816-9850",
+    "TargetId": "debian",
+    "TargetName": "Debian Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-08",
+    "Title": "Debian turns 33!",
+    "PublishedAt": "2026-08-16T13:00:00Z",
+    "Body": "Debian turns 33!",
+    "HtmlUrl": "https://bits.debian.org/2026/08/debian-turns-33.html",
+    "Tags": [
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": []
+  },
+  {
+    "Id": "debian-20260810-6474",
+    "TargetId": "debian",
+    "TargetName": "Debian Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-08",
+    "Title": "DebConf26 Local Team says goodbye",
+    "PublishedAt": "2026-08-10T21:50:00Z",
+    "Body": "DebConf26 Local Team says goodbye",
+    "HtmlUrl": "https://bits.debian.org/2026/08/debconf26-words-from-localteam.html",
+    "Tags": [],
+    "KeyTakeaways": []
+  },
+  {
+    "Id": "archlinux-20260721-2961",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-07",
+    "Title": "virtualbox-ext-vnc \u003E= 7.2.12-2 requires manual intervention",
+    "PublishedAt": "2026-07-21T13:01:46Z",
+    "Body": "Previously, we installed its contents in a way that made pacman not\naware of the files (using VBoxManage extpack install ... from an\ninstall script). To mitigate issues during upgrade, you can use one of\nthe following methods:\n\nUninstall virtualbox-ext-vnc before upgrading the system, then\ninstalling it again.\nRun VBoxManage extpack uninstall \u0027VNC\u0027 as root before upgrading the\nsystem.\nInstruct pacman once to overwrite the existing files:\n\npacman -Syu --overwrite \u0027/usr/lib/virtualbox/ExtensionPacks/VNC/*\u0027",
+    "HtmlUrl": "https://archlinux.org/news/virtualbox-ext-vnc-7212-2-requires-manual-intervention/",
+    "Tags": [
+      "Copilot/AI"
+    ],
+    "KeyTakeaways": [
+      "Previously, we installed its contents in a way that made pacman not"
+    ]
+  },
+  {
+    "Id": "archlinux-20260721-9753",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-07",
+    "Title": "virtualbox-ext-vnc \u003E= 7.2.12-2 requires manual intervention",
+    "PublishedAt": "2026-07-21T13:01:46Z",
+    "Body": "Previously, we installed its contents in a way that made pacman not\naware of the files (using VBoxManage extpack install ... from an\ninstall script). To mitigate issues during upgrade, you can use one of\nthe following methods:\n\nUninstall virtualbox-ext-vnc before upgrading the system, then\ninstalling it again.\nRun VBoxManage extpack uninstall \u0027VNC\u0027 as root before upgrading the\nsystem.\nInstruct pacman once to overwrite the existing files:\n\npacman -Syu --overwrite \u0027/usr/lib/virtualbox/ExtensionPacks/VNC/*\u0027",
+    "HtmlUrl": "https://archlinux.org/news/virtualbox-ext-vnc-7212-2-requires-manual-intervention/",
+    "Tags": [
+      "Copilot/AI"
+    ],
+    "KeyTakeaways": [
+      "Previously, we installed its contents in a way that made pacman not"
+    ]
+  },
+  {
+    "Id": "archlinux-20260612-5272",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-06",
+    "Title": "Active AUR malicious packages incident",
+    "PublishedAt": "2026-06-12T18:41:28Z",
+    "Body": "We are currently experiencing a high volume of malicious package adoptions and updates in the Arch User Repository.\nWe are actively working to track down existing malicious commits and attempting to prevent additional malicious commits from being pushed.\nWhile this is happening, and while we work to create a more permanent solution, users may see issues with the following:\n\nCreating new accounts on the AUR\nPushing package updates\nAdopting or creating new packages\n\nWe continue to encourage all users of AUR packages to review all PKGBUILD and install script changes when updating, especially during this time.\nIf you notice suspicious commits to a package that you use, please reach out to Arch staff via the aur-general mailing list with more information.",
+    "HtmlUrl": "https://archlinux.org/news/active-aur-malicious-packages-incident/",
+    "Tags": [
+      "Copilot/AI",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "We are currently experiencing a high volume of malicious package adoptions and updates in the Arch User Repository."
+    ]
+  },
+  {
+    "Id": "archlinux-20260612-6490",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-06",
+    "Title": "Active AUR malicious packages incident",
+    "PublishedAt": "2026-06-12T18:41:28Z",
+    "Body": "We are currently experiencing a high volume of malicious package adoptions and updates in the Arch User Repository.\nWe are actively working to track down existing malicious commits and attempting to prevent additional malicious commits from being pushed.\nWhile this is happening, and while we work to create a more permanent solution, users may see issues with the following:\n\nCreating new accounts on the AUR\nPushing package updates\nAdopting or creating new packages\n\nWe continue to encourage all users of AUR packages to review all PKGBUILD and install script changes when updating, especially during this time.\nIf you notice suspicious commits to a package that you use, please reach out to Arch staff via the aur-general mailing list with more information.",
+    "HtmlUrl": "https://archlinux.org/news/active-aur-malicious-packages-incident/",
+    "Tags": [
+      "Copilot/AI",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "We are currently experiencing a high volume of malicious package adoptions and updates in the Arch User Repository."
+    ]
+  },
+  {
+    "Id": "archlinux-20260604-6946",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-06",
+    "Title": "Arch Linux 2026 Leader Election Results",
+    "PublishedAt": "2026-06-04T12:27:57Z",
+    "Body": "Recently we held our leader elections and after a lively discussion period on the (internal) mailing lists and voting phase with two candidates Levente \u0022anthraxx\u0022 Poly\u00E1k was re-elected as Arch Linux Project Lead.\nAs per our election rules he is re-elected with the term lasting two years.\nThe role of of the project lead within Arch Linux is connected to a bunch of\nresponsibilities regarding decision making (when no consensus can be reached), community leadership, Code of Conduct enforcement, handling\nfinancial matters with SPI and overall project management tasks.\nCongratulations to Levente, thank you for stepping up to serve this community and all the best wishes for another successful term! \uD83E\uDD73",
+    "HtmlUrl": "https://archlinux.org/news/arch-linux-2026-leader-election-results/",
+    "Tags": [
+      "Copilot/AI",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "Recently we held our leader elections and after a lively discussion period on the (internal) mailing lists and voting phase with two candidates Levente \u0022anthraxx\u0022 Poly\u00E1k was re-elected as Arch Linux Project Lead."
+    ]
+  },
+  {
+    "Id": "archlinux-20260604-5753",
+    "TargetId": "archlinux",
+    "TargetName": "Arch Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-06",
+    "Title": "Arch Linux 2026 Leader Election Results",
+    "PublishedAt": "2026-06-04T12:27:57Z",
+    "Body": "Recently we held our leader elections and after a lively discussion period on the (internal) mailing lists and voting phase with two candidates Levente \u0022anthraxx\u0022 Poly\u00E1k was re-elected as Arch Linux Project Lead.\nAs per our election rules he is re-elected with the term lasting two years.\nThe role of of the project lead within Arch Linux is connected to a bunch of\nresponsibilities regarding decision making (when no consensus can be reached), community leadership, Code of Conduct enforcement, handling\nfinancial matters with SPI and overall project management tasks.\nCongratulations to Levente, thank you for stepping up to serve this community and all the best wishes for another successful term! \uD83E\uDD73",
+    "HtmlUrl": "https://archlinux.org/news/arch-linux-2026-leader-election-results/",
+    "Tags": [
+      "Copilot/AI",
+      "Linux/Kernel"
+    ],
+    "KeyTakeaways": [
+      "Recently we held our leader elections and after a lively discussion period on the (internal) mailing lists and voting phase with two candidates Levente \u0022anthraxx\u0022 Poly\u00E1k was re-elected as Arch Linux Project Lead."
     ]
   },
   {

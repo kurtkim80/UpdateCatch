@@ -78,5 +78,55 @@
     "WebChangelogUrl": "https://support.microsoft.com/en-us/help/5003244",
     "RssUrl": "https://blogs.windows.com/feed/",
     "Description": "Windows 11 24H2, Copilot+ PC 기능, 누적 보안 업데이트(KB 패치) 및 OS 성능 개선 소식"
+  },
+  {
+    "Id": "linux-kernel",
+    "Name": "Linux Kernel",
+    "Category": "Linux / OS",
+    "Type": "RssFeed",
+    "SourceUrl": "https://www.kernel.org/",
+    "WebChangelogUrl": "https://kernelnewbies.org/LinuxChanges",
+    "RssUrl": "https://www.kernel.org/feeds/kdist.xml",
+    "Description": "리눅스 공식 메인라인 및 LTS 커널 릴리즈(6.x), 하드웨어 드라이버, 파일시스템 및 성능 패치"
+  },
+  {
+    "Id": "ubuntu",
+    "Name": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Type": "RssFeed",
+    "SourceUrl": "https://ubuntu.com/blog",
+    "WebChangelogUrl": "https://wiki.ubuntu.com/Releases",
+    "RssUrl": "https://ubuntu.com/blog/feed",
+    "Description": "우분투 LTS/정규 릴리즈(24.04 Noble Numbat 등), 보안 패치(USN) 및 클라우드/데스크톱 기능"
+  },
+  {
+    "Id": "debian",
+    "Name": "Debian Linux",
+    "Category": "Linux / OS",
+    "Type": "RssFeed",
+    "SourceUrl": "https://bits.debian.org/",
+    "WebChangelogUrl": "https://www.debian.org/releases/",
+    "RssUrl": "https://bits.debian.org/feeds/atom.xml",
+    "Description": "데비안 안정판 릴리즈(Bookworm, Trixie), 보안 권고(DSA) 및 패키지 아키텍처 업데이트"
+  },
+  {
+    "Id": "fedora",
+    "Name": "Fedora Linux",
+    "Category": "Linux / OS",
+    "Type": "RssFeed",
+    "SourceUrl": "https://fedoraproject.org/",
+    "WebChangelogUrl": "https://docs.fedoraproject.org/en-US/releases/",
+    "RssUrl": "https://fedoramagazine.org/feed/",
+    "Description": "페도라 최신 버전(Fedora 40/41), 최신 그놈/KDE 데스크톱, Wayland 및 최첨단 리눅스 기술 도입 소식"
+  },
+  {
+    "Id": "archlinux",
+    "Name": "Arch Linux",
+    "Category": "Linux / OS",
+    "Type": "RssFeed",
+    "SourceUrl": "https://archlinux.org/",
+    "WebChangelogUrl": "https://archlinux.org/releng/releases/",
+    "RssUrl": "https://archlinux.org/feeds/news/",
+    "Description": "아치 리눅스 롤링 릴리즈 공식 공지, 패키지 시스템 마이그레이션 및 커널/패키지 중요 변경사항"
   }
 ]
