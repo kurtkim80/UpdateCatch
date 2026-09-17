@@ -1,6 +1,6 @@
 [
   {
-    "Id": "openai-202609-0",
+    "Id": "openai-9380b8c69db0",
     "TargetId": "openai",
     "TargetName": "OpenAI ChatGPT \u0026 GPT",
     "Category": "Frontier AI",
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "Id": "claude-202609-0",
+    "Id": "claude-9af42a1b9a8d",
     "TargetId": "claude",
     "TargetName": "Anthropic Claude",
     "Category": "Frontier AI",
@@ -92,7 +92,7 @@
     "Category": "IDE / Editor",
     "Version": "2026-09",
     "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T14:01:01.7042813Z",
+    "PublishedAt": "2026-09-17T14:14:07.523234Z",
     "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
     "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
     "Tags": [
@@ -101,320 +101,33 @@
     "KeyTakeaways": []
   },
   {
-    "Id": "vscode-20260917-2936",
+    "Id": "vscode-8bc291f39a28",
     "TargetId": "vscode",
     "TargetName": "Visual Studio Code",
     "Category": "IDE / Editor",
     "Version": "2026-09",
     "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T14:01:01.7042049Z",
+    "PublishedAt": "2026-09-17T14:14:07.523208Z",
     "Body": "Visual Studio Code 1.138",
     "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
     "Tags": [],
     "KeyTakeaways": []
   },
   {
-    "Id": "vscode-20260917-8434",
+    "Id": "vscode-5c9dea62fc51",
     "TargetId": "vscode",
     "TargetName": "Visual Studio Code",
     "Category": "IDE / Editor",
     "Version": "2026-09",
     "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T14:01:01.697226Z",
+    "PublishedAt": "2026-09-17T14:14:07.518934Z",
     "Body": "Visual Studio Code 1.139 (Insiders)",
     "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
     "Tags": [],
     "KeyTakeaways": []
   },
   {
-    "Id": "vscode-20260917-6640",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:49:01.9632295Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-224",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:49:01.9631447Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-7223",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:49:01.9545107Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-5846",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:45:25.0303699Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-2996",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:45:25.0303002Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-1483",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:45:25.0216467Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-4955",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:41:14.0661802Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-613",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:41:14.0661102Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-6998",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:41:14.0590809Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-7278",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:39:43.5526925Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-4080",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:39:43.5526055Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-905",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:39:43.5437514Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-3478",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:37:23.166156Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-8634",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:37:23.1660937Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-9092",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:37:23.1573575Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-4050",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:32:29.9434629Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-1480",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:32:29.9433971Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-524",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:32:29.9345504Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-5636",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "PublishedAt": "2026-09-17T13:29:54.687525Z",
-    "Body": "Building the new GitHub Copilot Inline Suggestions Model: Part One",
-    "HtmlUrl": "https://code.visualstudio.com/blogs/2026/09/16/building-the-github-copilot-inline-suggestions-model-part-one",
-    "Tags": [
-      "Copilot/AI"
-    ],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-8383",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.138",
-    "PublishedAt": "2026-09-17T13:29:54.687507Z",
-    "Body": "Visual Studio Code 1.138",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_138",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "vscode-20260917-6008",
-    "TargetId": "vscode",
-    "TargetName": "Visual Studio Code",
-    "Category": "IDE / Editor",
-    "Version": "2026-09",
-    "Title": "Visual Studio Code 1.139 (Insiders)",
-    "PublishedAt": "2026-09-17T13:29:54.683475Z",
-    "Body": "Visual Studio Code 1.139 (Insiders)",
-    "HtmlUrl": "https://code.visualstudio.com/updates/v1_139",
-    "Tags": [],
-    "KeyTakeaways": []
-  },
-  {
-    "Id": "ubuntu-20260917-8699",
+    "Id": "ubuntu-d6205083dfa4",
     "TargetId": "ubuntu",
     "TargetName": "Ubuntu Linux",
     "Category": "Linux / OS",
@@ -681,7 +394,7 @@
     ]
   },
   {
-    "Id": "ubuntu-20260915-5578",
+    "Id": "ubuntu-1fb6f7c6a58e",
     "TargetId": "ubuntu",
     "TargetName": "Ubuntu Linux",
     "Category": "Linux / OS",
@@ -754,7 +467,7 @@
     ]
   },
   {
-    "Id": "fedora-20260915-8261",
+    "Id": "fedora-d379c3083189",
     "TargetId": "fedora",
     "TargetName": "Fedora Linux",
     "Category": "Linux / OS",
@@ -771,22 +484,36 @@
     ]
   },
   {
-    "Id": "fedora-20260915-8689",
-    "TargetId": "fedora",
-    "TargetName": "Fedora Linux",
-    "Category": "Linux / OS",
+    "Id": "dotnet-162d64377679",
+    "TargetId": "dotnet",
+    "TargetName": ".NET (Platform \u0026 C#)",
+    "Category": "Framework / Runtime",
     "Version": "2026-09",
-    "Title": "Announcing Fedora Linux Asahi Remix 45 Beta",
-    "PublishedAt": "2026-09-15T14:05:00Z",
-    "Body": "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]",
-    "HtmlUrl": "https://fedoramagazine.org/announcing-fedora_asahi_remix_45_beta/",
+    "Title": "Performance Improvements in .NET 11",
+    "PublishedAt": "2026-09-15T12:00:00Z",
+    "Body": "Take a tour through hundreds of performance improvements in .NET 11.\nThe post Performance Improvements in .NET 11 appeared first on .NET Blog.\n",
+    "HtmlUrl": "https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-11/",
     "Tags": [
-      "Copilot/AI",
-      "macOS",
-      "Linux/Kernel"
+      "Performance",
+      ".NET/C#"
     ],
     "KeyTakeaways": [
-      "We are happy to announce the availability of Fedora Linux Asahi Remix 45 Beta. This pre-release will bring the freshly announced Fedora Linux 45 Beta to Apple Silicon Macs. We expect to announce general availability of Fedora Linux Asahi Remix 45 in about a month. This will coincide with the overall Fedora Linux 45 release. [\u0026#8230;]"
+      "Take a tour through hundreds of performance improvements in .NET 11."
+    ]
+  },
+  {
+    "Id": "ubuntu-55a80c6f4bd1",
+    "TargetId": "ubuntu",
+    "TargetName": "Ubuntu Linux",
+    "Category": "Linux / OS",
+    "Version": "2026-09",
+    "Title": "Evolution of the RISC-V ISA. What next after RVA23?",
+    "PublishedAt": "2026-09-15T08:22:32Z",
+    "Body": "Introduction Releasing the RVA23 specification was a major milestone for the RISC-V community. While it provides an excellent baseline for deployment at scale, innovation continues to take place and we will see further extensions and profiles over the coming years. Upcoming innovations fall into a couple of key areas In this blog, we\u2019ll look at [\u0026hellip;]\n",
+    "HtmlUrl": "https://ubuntu.com//blog/evolution-of-the-risc-v-isa-what-next-after-rva23",
+    "Tags": [],
+    "KeyTakeaways": [
+      "Introduction Releasing the RVA23 specification was a major milestone for the RISC-V community. While it provides an excellent baseline for deployment at scale, innovation continues to take place and we will see further extensions and profiles over the coming years. Upcoming innovations fall into a couple of key areas In this blog, we\u2019ll look at [\u0026hellip;]"
     ]
   },
   {
@@ -1173,7 +900,7 @@
     ]
   },
   {
-    "Id": "debian-20260907-9038",
+    "Id": "debian-f1b4bed72d41",
     "TargetId": "debian",
     "TargetName": "Debian Linux",
     "Category": "Linux / OS",

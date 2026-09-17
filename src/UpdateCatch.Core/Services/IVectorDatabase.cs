@@ -54,13 +54,24 @@ public class JsonFileVectorDatabase : IVectorDatabase
         try
         {
             var existing = await LoadReleasesInternalAsync(cancellationToken);
-            var map = existing.ToDictionary(r => r.Id, r => r);
-            foreach (var rel in releases)
+            
+            // Deduplicate by Id, (TargetId, Title), and (TargetId, HtmlUrl)
+            var releaseList = new List<ReleaseItem>();
+            var seenKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // 신규 데이터 우선 (최신 정보로 갱신)
+            foreach (var rel in releases.Concat(existing))
             {
-                map[rel.Id] = rel;
+                var titleKey = $"{rel.TargetId}__title__{rel.Title.Trim()}";
+                var urlKey = !string.IsNullOrWhiteSpace(rel.HtmlUrl) ? $"{rel.TargetId}__url__{rel.HtmlUrl.Trim()}" : titleKey;
+
+                if (seenKeys.Add(rel.Id) && seenKeys.Add(titleKey) && seenKeys.Add(urlKey))
+                {
+                    releaseList.Add(rel);
+                }
             }
 
-            var json = JsonSerializer.Serialize(map.Values.OrderByDescending(r => r.PublishedAt).ToList(), new JsonSerializerOptions { WriteIndented = true });
+            var json = JsonSerializer.Serialize(releaseList.OrderByDescending(r => r.PublishedAt).ToList(), new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(_releasesFilePath, json, cancellationToken);
         }
         finally

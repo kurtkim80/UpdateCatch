@@ -60,10 +60,12 @@ public class GitHubReleaseCrawler : ICrawler
 
                 var version = string.IsNullOrWhiteSpace(tagName) ? name : tagName;
                 var title = string.IsNullOrWhiteSpace(name) ? $"{target.Name} {version}" : name;
+                var uniqueKey = !string.IsNullOrWhiteSpace(htmlUrl) ? htmlUrl : $"{target.Id}_{version}_{title}";
+                var deterministicId = CrawlerHelper.GenerateDeterministicId(target.Id, uniqueKey);
 
                 var releaseItem = new ReleaseItem
                 {
-                    Id = $"{target.Id}-{version.Replace('/', '_')}",
+                    Id = deterministicId,
                     TargetId = target.Id,
                     TargetName = target.Name,
                     Category = target.Category,
@@ -130,9 +132,12 @@ public class RssFeedCrawler : ICrawler
                 doc.LoadHtml(summary);
                 var plainText = doc.DocumentNode.InnerText;
 
+                var uniqueKey = !string.IsNullOrWhiteSpace(link) ? link : $"{target.Id}_{title}";
+                var deterministicId = CrawlerHelper.GenerateDeterministicId(target.Id, uniqueKey);
+
                 var releaseItem = new ReleaseItem
                 {
-                    Id = $"{target.Id}-{pubDate:yyyyMMdd}-{Math.Abs(title.GetHashCode() % 10000)}",
+                    Id = deterministicId,
                     TargetId = target.Id,
                     TargetName = target.Name,
                     Category = target.Category,
@@ -154,6 +159,17 @@ public class RssFeedCrawler : ICrawler
         }
 
         return results;
+    }
+}
+
+public static class CrawlerHelper
+{
+    public static string GenerateDeterministicId(string targetId, string key)
+    {
+        using var sha = System.Security.Cryptography.SHA256.Create();
+        var bytes = System.Text.Encoding.UTF8.GetBytes(key.Trim().ToLowerInvariant());
+        var hash = Convert.ToHexString(sha.ComputeHash(bytes))[..12].ToLowerInvariant();
+        return $"{targetId}-{hash}";
     }
 }
 
@@ -200,9 +216,11 @@ public class WebChangelogCrawler : ICrawler
                     if (text.Length < 30) continue;
 
                     var title = text.Split('\n').FirstOrDefault()?.Trim() ?? $"{target.Name} Update";
+                    var deterministicId = CrawlerHelper.GenerateDeterministicId(target.Id, $"{url}_{title}");
+
                     var releaseItem = new ReleaseItem
                     {
-                        Id = $"{target.Id}-{DateTime.UtcNow:yyyyMM}-{count++}",
+                        Id = deterministicId,
                         TargetId = target.Id,
                         TargetName = target.Name,
                         Category = target.Category,
@@ -224,14 +242,17 @@ public class WebChangelogCrawler : ICrawler
                 var bodyText = doc.DocumentNode.SelectSingleNode("//main | //body")?.InnerText.Trim() ?? "";
                 if (bodyText.Length > 50)
                 {
+                    var title = $"{target.Name} Latest Updates";
+                    var deterministicId = CrawlerHelper.GenerateDeterministicId(target.Id, $"{url}_{title}");
+
                     results.Add(new ReleaseItem
                     {
-                        Id = $"{target.Id}-{DateTime.UtcNow:yyyyMM}",
+                        Id = deterministicId,
                         TargetId = target.Id,
                         TargetName = target.Name,
                         Category = target.Category,
                         Version = DateTime.UtcNow.ToString("yyyy.MM"),
-                        Title = $"{target.Name} Latest Updates",
+                        Title = title,
                         PublishedAt = DateTime.UtcNow,
                         Body = bodyText.Length > 2000 ? bodyText[..2000] : bodyText,
                         HtmlUrl = url,
