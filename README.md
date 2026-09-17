@@ -2,10 +2,15 @@
 
 > 관심 있는 소프트웨어와 Frontier AI 모델의 릴리즈 소식을 자동으로 수집하고, **Vector DB**에 색인하여 **.NET Razor 웹 대시보드**에서 AI 시맨틱(자연어) 검색과 핵심 요약을 제공하는 플랫폼입니다.
 
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Website-kurtkim80.github.io%2FUpdateCatch-brightgreen?style=for-the-badge)](https://kurtkim80.github.io/UpdateCatch/)
+
+👉 **라이브 웹사이트 바로가기: [https://kurtkim80.github.io/UpdateCatch/](https://kurtkim80.github.io/UpdateCatch/)**
+
 ![.NET 10](https://img.shields.io/badge/.NET-10.0-purple.svg)
 ![Razor Pages](https://img.shields.io/badge/ASP.NET%20Core-Razor%20Pages-blue.svg)
 ![Vector DB](https://img.shields.io/badge/Vector%20DB-Cosine%20Similarity-orange.svg)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Automated%20Collector-green.svg)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-success.svg)
 
 ---
 
