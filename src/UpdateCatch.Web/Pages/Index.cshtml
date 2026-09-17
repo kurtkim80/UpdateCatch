@@ -68,12 +68,17 @@ else
                         <span class="badge badge-target @Model.GetBadgeClass(rel.TargetId)">
                             @rel.TargetName
                         </span>
-                        <small class="text-muted">
-                            <i class="bi bi-calendar3 me-1"></i>@rel.PublishedAt.ToString("yyyy-MM-dd")
-                        </small>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-sm btn-light border text-primary fw-semibold px-2 py-0" style="font-size: 0.75rem;" onclick="toggleCardTranslation('@rel.Id')" id="btn-trans-@rel.Id">
+                                <i class="bi bi-translate me-1"></i>한글 번역
+                            </button>
+                            <small class="text-muted">
+                                <i class="bi bi-calendar3 me-1"></i>@rel.PublishedAt.ToString("yyyy-MM-dd")
+                            </small>
+                        </div>
                     </div>
 
-                    <h5 class="fw-bold text-dark mb-2 mt-1">
+                    <h5 class="fw-bold text-dark mb-2 mt-1" id="title-@rel.Id">
                         @rel.Title
                     </h5>
 
@@ -86,6 +91,7 @@ else
                     </div>
 
                     <!-- AI 핵심 3줄 요약 (Key Takeaways) -->
+                    <div id="takeaways-@rel.Id">
                     @if (rel.KeyTakeaways.Count > 0)
                     {
                         <div class="p-3 bg-light rounded-3 mb-3 border-start border-4 border-primary">
@@ -100,6 +106,7 @@ else
                             </ul>
                         </div>
                     }
+                    </div>
 
                     <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
                         <span class="badge bg-secondary-subtle text-secondary">버전: @rel.Version</span>
@@ -114,4 +121,61 @@ else
             </div>
         }
     </div>
+}
+
+@section Scripts {
+<script>
+    const translationCache = new Map();
+
+    async function fetchGoogleTranslate(text) {
+        if (!text || text.trim().length === 0) return text;
+        if (translationCache.has(text)) return translationCache.get(text);
+        try {
+            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ko&dt=t&q=${encodeURIComponent(text.slice(0, 1500))}`;
+            const res = await fetch(url);
+            const data = await res.json();
+            if (data && data[0]) {
+                const translated = data[0].map(chunk => chunk[0]).join('');
+                translationCache.set(text, translated);
+                return translated;
+            }
+        } catch (e) {
+            console.error('Translation failed:', e);
+        }
+        return text;
+    }
+
+    async function toggleCardTranslation(relId) {
+        const titleEl = document.getElementById(`title-${relId}`);
+        const takeawaysEl = document.getElementById(`takeaways-${relId}`);
+        const btnEl = document.getElementById(`btn-trans-${relId}`);
+        const isKo = btnEl.getAttribute('data-translated') === 'true';
+
+        if (isKo) {
+            titleEl.innerText = titleEl.getAttribute('data-orig-title');
+            takeawaysEl.innerHTML = takeawaysEl.getAttribute('data-orig-html');
+            btnEl.innerHTML = '<i class="bi bi-translate me-1"></i>한글 번역';
+            btnEl.setAttribute('data-translated', 'false');
+            btnEl.className = 'btn btn-sm btn-light border text-primary fw-semibold px-2 py-0';
+        } else {
+            if (!titleEl.hasAttribute('data-orig-title')) {
+                titleEl.setAttribute('data-orig-title', titleEl.innerText);
+                takeawaysEl.setAttribute('data-orig-html', takeawaysEl.innerHTML);
+            }
+            btnEl.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>번역 중...';
+
+            const koTitle = await fetchGoogleTranslate(titleEl.innerText);
+            titleEl.innerText = koTitle;
+
+            const items = takeawaysEl.querySelectorAll('li');
+            for (const li of items) {
+                li.innerText = await fetchGoogleTranslate(li.innerText);
+            }
+
+            btnEl.innerHTML = '<i class="bi bi-arrow-counterclockwise me-1"></i>원문 보기';
+            btnEl.setAttribute('data-translated', 'true');
+            btnEl.className = 'btn btn-sm btn-primary text-white fw-semibold px-2 py-0';
+        }
+    }
+</script>
 }

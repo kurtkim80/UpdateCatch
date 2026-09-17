@@ -216,25 +216,84 @@
                 const linkHtml = doc.Url ? `<a href="${doc.Url}" target="_blank" class="btn btn-sm btn-outline-primary">원문 확인 <i class="bi bi-arrow-right ms-1"></i></a>` : '';
 
                 col.innerHTML = `
-                    <div class="card card-custom bg-white p-4">
+                    <div class="card card-custom bg-white p-4" id="search-card-${doc.Id}">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge badge-target ${getBadgeClass(doc.TargetId)}">${doc.TargetName}</span>
                                 <span class="badge bg-secondary-subtle text-secondary">버전: ${doc.Version || ''}</span>
                                 <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>${pubDate}</small>
                             </div>
-                            <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
-                                <i class="bi bi-check-circle me-1"></i>유사도 ${matchScore}%
-                            </span>
+                            <div class="d-flex align-items-center gap-2">
+                                <button class="btn btn-sm btn-light border text-primary fw-semibold px-2 py-0" style="font-size: 0.75rem;" onclick="toggleSearchDocTranslation('${doc.Id}')" id="s-trans-${doc.Id}">
+                                    <i class="bi bi-translate me-1"></i>한글 번역
+                                </button>
+                                <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
+                                    <i class="bi bi-check-circle me-1"></i>유사도 ${matchScore}%
+                                </span>
+                            </div>
                         </div>
-                        <h5 class="fw-bold text-dark mt-1 mb-2">${doc.SectionTitle || '업데이트 내용'}</h5>
+                        <h5 class="fw-bold text-dark mt-1 mb-2" id="s-title-${doc.Id}">${doc.SectionTitle || '업데이트 내용'}</h5>
                         <div class="mb-3">${tagsHtml}</div>
-                        <div class="bg-light p-3 rounded-3 text-secondary small font-monospace mb-3" style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">${doc.Content}</div>
+                        <div class="bg-light p-3 rounded-3 text-secondary small font-monospace mb-3" id="s-content-${doc.Id}" style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">${doc.Content}</div>
                         <div class="text-end">${linkHtml}</div>
                     </div>
                 `;
                 grid.appendChild(col);
             });
+        }
+
+        // --- 무료 한글 번역 엔진 ---
+        const searchTransCache = new Map();
+
+        async function fetchGoogleTranslate(text) {
+            if (!text || text.trim().length === 0) return text;
+            if (searchTransCache.has(text)) return searchTransCache.get(text);
+
+            try {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ko&dt=t&q=${encodeURIComponent(text.slice(0, 1500))}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data && data[0]) {
+                    const translated = data[0].map(chunk => chunk[0]).join('');
+                    searchTransCache.set(text, translated);
+                    return translated;
+                }
+            } catch (e) {
+                console.error('Translation failed:', e);
+            }
+            return text;
+        }
+
+        async function toggleSearchDocTranslation(docId) {
+            const doc = vectorDocs.find(d => d.Id === docId);
+            if (!doc) return;
+
+            const titleEl = document.getElementById(`s-title-${docId}`);
+            const contentEl = document.getElementById(`s-content-${docId}`);
+            const btnEl = document.getElementById(`s-trans-${docId}`);
+
+            const isKo = btnEl.getAttribute('data-translated') === 'true';
+
+            if (isKo) {
+                titleEl.innerText = doc.SectionTitle || '업데이트 내용';
+                contentEl.innerText = doc.Content;
+                btnEl.innerHTML = '<i class="bi bi-translate me-1"></i>한글 번역';
+                btnEl.setAttribute('data-translated', 'false');
+                btnEl.className = 'btn btn-sm btn-light border text-primary fw-semibold px-2 py-0';
+            } else {
+                btnEl.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>번역 중...';
+                
+                const [koTitle, koContent] = await Promise.all([
+                    fetchGoogleTranslate(doc.SectionTitle),
+                    fetchGoogleTranslate(doc.Content)
+                ]);
+
+                titleEl.innerText = koTitle;
+                contentEl.innerText = koContent;
+                btnEl.innerHTML = '<i class="bi bi-arrow-counterclockwise me-1"></i>원문 보기';
+                btnEl.setAttribute('data-translated', 'true');
+                btnEl.className = 'btn btn-sm btn-primary text-white fw-semibold px-2 py-0';
+            }
         }
 
         loadVectors();

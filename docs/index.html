@@ -53,6 +53,9 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center gap-2">
+                    <button id="translateAllBtn" class="btn btn-sm btn-outline-primary fw-semibold" onclick="toggleTranslateAll()">
+                        <i class="bi bi-translate me-1"></i> <span id="translateAllText">전체 한글 번역 🇰🇷</span>
+                    </button>
                     <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2">
                         <i class="bi bi-check-circle me-1"></i> GitHub Pages Live
                     </span>
@@ -182,14 +185,19 @@
                 const linkHtml = rel.HtmlUrl ? `<a href="${rel.HtmlUrl}" target="_blank" class="btn btn-sm btn-outline-dark">공식 원문 보기 <i class="bi bi-box-arrow-up-right ms-1"></i></a>` : '';
 
                 col.innerHTML = `
-                    <div class="card card-custom h-100 bg-white p-4 d-flex flex-column">
+                    <div class="card card-custom h-100 bg-white p-4 d-flex flex-column" id="card-${rel.Id}">
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <span class="badge badge-target ${getBadgeClass(rel.TargetId)}">${rel.TargetName}</span>
-                            <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>${pubDate}</small>
+                            <div class="d-flex align-items-center gap-2">
+                                <button class="btn btn-sm btn-light border text-primary fw-semibold px-2 py-0" style="font-size: 0.75rem;" onclick="toggleCardTranslation('${rel.Id}')" id="btn-trans-${rel.Id}">
+                                    <i class="bi bi-translate me-1"></i>한글 번역
+                                </button>
+                                <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>${pubDate}</small>
+                            </div>
                         </div>
-                        <h5 class="fw-bold text-dark mb-2 mt-1">${rel.Title}</h5>
+                        <h5 class="fw-bold text-dark mb-2 mt-1" id="title-${rel.Id}">${rel.Title}</h5>
                         <div class="mb-3">${tagsHtml}</div>
-                        ${takeawaysHtml}
+                        <div id="takeaways-${rel.Id}">${takeawaysHtml}</div>
                         <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
                             <span class="badge bg-secondary-subtle text-secondary">버전: ${rel.Version || ''}</span>
                             ${linkHtml}
@@ -198,6 +206,101 @@
                 `;
                 grid.appendChild(col);
             });
+        }
+
+        // --- 무료 한글 번역 엔진 (API Key 불필요) ---
+        const translationCache = new Map();
+        let isAllTranslated = false;
+
+        async function fetchGoogleTranslate(text) {
+            if (!text || text.trim().length === 0) return text;
+            if (translationCache.has(text)) return translationCache.get(text);
+
+            try {
+                const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ko&dt=t&q=${encodeURIComponent(text)}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data && data[0]) {
+                    const translated = data[0].map(chunk => chunk[0]).join('');
+                    translationCache.set(text, translated);
+                    return translated;
+                }
+            } catch (e) {
+                console.error('Translation failed for:', text, e);
+            }
+            return text;
+        }
+
+        async function toggleCardTranslation(relId) {
+            const rel = allReleases.find(r => r.Id === relId);
+            if (!rel) return;
+
+            const titleEl = document.getElementById(`title-${relId}`);
+            const takeawaysEl = document.getElementById(`takeaways-${relId}`);
+            const btnEl = document.getElementById(`btn-trans-${relId}`);
+
+            const isCurrentlyKo = btnEl.getAttribute('data-translated') === 'true';
+
+            if (isCurrentlyKo) {
+                // 원문 복구
+                titleEl.innerText = rel.Title;
+                if (rel.KeyTakeaways && rel.KeyTakeaways.length > 0) {
+                    const takeaways = rel.KeyTakeaways.map(k => `<li class="mb-1">${k}</li>`).join('');
+                    takeawaysEl.innerHTML = `
+                        <div class="p-3 bg-light rounded-3 mb-3 border-start border-4 border-primary">
+                            <div class="fw-semibold small text-primary mb-1"><i class="bi bi-lightning-charge-fill me-1"></i>핵심 하이라이트 요약</div>
+                            <ul class="mb-0 ps-3 small text-secondary">${takeaways}</ul>
+                        </div>`;
+                }
+                btnEl.innerHTML = '<i class="bi bi-translate me-1"></i>한글 번역';
+                btnEl.setAttribute('data-translated', 'false');
+                btnEl.className = 'btn btn-sm btn-light border text-primary fw-semibold px-2 py-0';
+            } else {
+                // 한글 번역 수행
+                btnEl.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>번역 중...';
+                
+                const koTitle = await fetchGoogleTranslate(rel.Title);
+                titleEl.innerText = koTitle;
+
+                if (rel.KeyTakeaways && rel.KeyTakeaways.length > 0) {
+                    const koTakeaways = await Promise.all(rel.KeyTakeaways.map(t => fetchGoogleTranslate(t)));
+                    const takeawaysHtml = koTakeaways.map(k => `<li class="mb-1">${k}</li>`).join('');
+                    takeawaysEl.innerHTML = `
+                        <div class="p-3 bg-light rounded-3 mb-3 border-start border-4 border-primary">
+                            <div class="fw-semibold small text-primary mb-1"><i class="bi bi-lightning-charge-fill me-1"></i>핵심 하이라이트 요약 (한국어)</div>
+                            <ul class="mb-0 ps-3 small text-secondary">${takeawaysHtml}</ul>
+                        </div>`;
+                }
+
+                btnEl.innerHTML = '<i class="bi bi-arrow-counterclockwise me-1"></i>원문 보기';
+                btnEl.setAttribute('data-translated', 'true');
+                btnEl.className = 'btn btn-sm btn-primary text-white fw-semibold px-2 py-0';
+            }
+        }
+
+        async function toggleTranslateAll() {
+            const allBtns = document.querySelectorAll('[id^="btn-trans-"]');
+            const mainBtnText = document.getElementById('translateAllText');
+
+            if (!isAllTranslated) {
+                mainBtnText.innerText = '전체 원문 보기 🇺🇸';
+                for (const btn of allBtns) {
+                    if (btn.getAttribute('data-translated') !== 'true') {
+                        const relId = btn.id.replace('btn-trans-', '');
+                        await toggleCardTranslation(relId);
+                    }
+                }
+                isAllTranslated = true;
+            } else {
+                mainBtnText.innerText = '전체 한글 번역 🇰🇷';
+                for (const btn of allBtns) {
+                    if (btn.getAttribute('data-translated') === 'true') {
+                        const relId = btn.id.replace('btn-trans-', '');
+                        await toggleCardTranslation(relId);
+                    }
+                }
+                isAllTranslated = false;
+            }
         }
 
         loadData();
