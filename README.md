@@ -36,36 +36,37 @@
 
 ---
 
-## 🚀 빠른 시작 (로컬 실행)
+## 🌐 GitHub Pages 온라인 라이브 웹사이트 (무료 호스팅)
+
+이 프로젝트는 **GitHub Pages**와 연동되어 별도의 서버 설치 없이 브라우저로 직접 접속하여 이용하실 수 있습니다:
+
+| 페이지 | 라이브 웹사이트 URL (깃허브 직접 접속) | 설명 |
+|---|---|---|
+| **🏠 타임라인 피드 (메인)** | [https://kurtkim80.github.io/UpdateCatch/](https://kurtkim80.github.io/UpdateCatch/) | 최신 수집 릴리즈 시간순 피드, AI 3줄 요약 |
+| **🔍 AI 시맨틱 검색** | [https://kurtkim80.github.io/UpdateCatch/search.html](https://kurtkim80.github.io/UpdateCatch/search.html) | 브라우저 내장 Vector DB 자연어 유사도 검색 |
+| **🎯 모니터링 타겟 관리** | [https://kurtkim80.github.io/UpdateCatch/targets.html](https://kurtkim80.github.io/UpdateCatch/targets.html) | 추적 중인 소프트웨어 및 신규 타겟 가이드 |
+
+> [!TIP]
+> **GitHub Pages 활성화 방법 (최초 1회 설정)**:
+> 1. 저장소 상단의 **Settings** > 좌측 **Pages** 메뉴 클릭
+> 2. **Build and deployment > Source** 항목에서 **GitHub Actions**를 선택합니다.
+> 3. GitHub Actions 워크플로우가 돌면 자동으로 위 주소로 웹사이트가 라이브 서비스됩니다!
+
+---
+
+## 🚀 로컬 개발 및 실행 (선택 사항)
 
 ### 1. 업데이트 수집기 실행
 ```bash
-# GitHub 토큰 및 Gemini API 키 설정 (선택 사항: 키 미설정 시 Fallback 임베딩으로 즉시 동작)
-export GITHUB_TOKEN="your_github_token"
-export GEMINI_API_KEY="your_gemini_api_key"
-
 # 수집 실행
 dotnet run --project src/UpdateCatch.Collector
 ```
 
-### 2. 웹 대시보드 실행
+### 2. 로컬 웹 대시보드 실행 (.NET Razor)
 ```bash
 dotnet run --project src/UpdateCatch.Web
 ```
-
-#### 🌐 웹 페이지 접속 주소
-웹 실행 후 브라우저에서 아래 주소로 접속합니다:
-
-| 페이지 | URL 주소 | 설명 |
-|---|---|---|
-| **🏠 타임라인 피드 (메인)** | [http://localhost:5028/](http://localhost:5028/) | 최신 수집 릴리즈 시간순 피드, AI 3줄 요약 |
-| **🔍 AI 시맨틱 검색** | [http://localhost:5028/Search](http://localhost:5028/Search) | 자연어 의도 기반 Vector DB 유사도 검색 |
-| **🎯 모니터링 타겟 관리** | [http://localhost:5028/Targets](http://localhost:5028/Targets) | 추적 중인 소프트웨어 및 신규 타겟 가이드 |
-| **💻 VS Code 전용 피드** | [http://localhost:5028/?target=vscode](http://localhost:5028/?target=vscode) | VS Code 릴리즈만 필터링 |
-| **🐍 Python 전용 피드** | [http://localhost:5028/?target=python](http://localhost:5028/?target=python) | Python 릴리즈만 필터링 |
-| **🤖 Frontier AI 피드** | [http://localhost:5028/?target=claude](http://localhost:5028/?target=claude) | Claude, Gemini, OpenAI 모델별 필터링 |
-
-> *(참고: HTTPS 개발 인증서 사용 시 `https://localhost:7296/`로도 접속 가능합니다)*
+로컬 접속 주소: [http://localhost:5028/](http://localhost:5028/)
 
 ---
 

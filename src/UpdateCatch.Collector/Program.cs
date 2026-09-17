@@ -88,6 +88,19 @@ Console.WriteLine($"\n[Storage] Saving {allReleases.Count} releases and {allDocu
 await vectorDb.UpsertReleasesAsync(allReleases);
 await vectorDb.UpsertDocumentsAsync(allDocuments);
 
+// Sync to docs/data for GitHub Pages live hosting
+var docsDataDir = Path.Combine(repoRoot, "docs", "data");
+if (Directory.Exists(Path.Combine(repoRoot, "docs")))
+{
+    Directory.CreateDirectory(docsDataDir);
+    foreach (var file in Directory.GetFiles(dataDir))
+    {
+        var dest = Path.Combine(docsDataDir, Path.GetFileName(file));
+        File.Copy(file, dest, overwrite: true);
+    }
+    Console.WriteLine($"[Storage] Synced data to {docsDataDir} for GitHub Pages!");
+}
+
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine("\n[Success] UpdateCatch collection and vector indexing completed successfully!");
 Console.ResetColor();

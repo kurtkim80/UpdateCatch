@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 시맨틱 검색 - UpdateCatch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <style>
+        :root { --primary-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); }
+        body { background-color: #f8fafc; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar-brand-gradient { font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.4rem; }
+        .card-custom { border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .badge-target { font-weight: 600; padding: 0.35em 0.7em; border-radius: 6px; }
+        .badge-vscode { background-color: #007acc; color: white; }
+        .badge-python { background-color: #3776ab; color: white; }
+        .badge-gemini { background-color: #4285f4; color: white; }
+        .badge-claude { background-color: #d97706; color: white; }
+        .badge-openai { background-color: #10a37f; color: white; }
+        .badge-default { background-color: #64748b; color: white; }
+        .tag-pill { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; border-radius: 9999px; padding: 0.2rem 0.6rem; margin-right: 0.3rem; display: inline-block; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-gradient d-flex align-items-center gap-2" href="./index.html">
+                <i class="bi bi-radar text-primary fs-3"></i>
+                <span>UpdateCatch</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 fw-semibold text-secondary" href="./index.html">
+                            <i class="bi bi-clock-history me-1"></i> 타임라인 피드
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 fw-bold text-primary" href="./search.html">
+                            <i class="bi bi-stars me-1"></i> AI 시맨틱 검색
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3 fw-semibold" href="./targets.html">
+                            <i class="bi bi-collection me-1"></i> 모니터링 타겟
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4 flex-grow-1">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10 text-center">
+                <h2 class="fw-bold mb-2">
+                    <i class="bi bi-stars text-primary me-2"></i>AI 시맨틱 검색 (Vector DB)
+                </h2>
+                <p class="text-muted mb-4">브라우저 내장 벡터 연산으로 키워드 일치 여부와 상관없이 가장 의도가 유사한 업데이트를 실시간 탐색합니다.</p>
+
+                <!-- 검색창 Form -->
+                <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden border mb-3">
+                    <span class="input-group-text bg-white border-0 ps-3">
+                        <i class="bi bi-search text-primary"></i>
+                    </span>
+                    <input type="text" id="queryInput" class="form-control border-0 py-3" placeholder="예: 'VS Code 터미널 바뀐 점', '보안 패치', 'Claude 프롬프트 캐싱'..." autofocus />
+                    <button type="button" class="btn btn-primary px-4 fw-bold" onclick="performSearch()">
+                        검색
+                    </button>
+                </div>
+
+                <!-- 추천 검색어 칩 -->
+                <div class="d-flex flex-wrap justify-content-center gap-2 align-items-center">
+                    <span class="small text-muted me-1"><i class="bi bi-lightbulb me-1"></i>추천 질의:</span>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('VS Code 터미널 개선 및 단축키')">VS Code 터미널</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('보안 취약점 패치 및 CVE 해결')">보안 패치</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Claude 프롬프트 캐싱 및 Computer Use')">Claude 캐싱 & 제어</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('Python JIT 컴파일러 및 Free-threaded GIL')">Python JIT / GIL</button>
+                    <button class="btn btn-sm btn-light border rounded-pill" onclick="searchFor('OpenAI API 가격 인하 및 Reasoning o1')">OpenAI 가격 인하</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsArea" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold mb-0">
+                    검색 결과 <span id="resultsCount" class="badge bg-primary rounded-pill">0</span>건
+                    <span class="text-muted small fw-normal ms-2">코사인 유사도(Cosine Similarity) 순 정렬</span>
+                </h5>
+            </div>
+            <div class="row g-4" id="resultsGrid"></div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top py-3 text-center text-muted small mt-auto">
+        <div class="container">
+            UpdateCatch &copy; 2026 - Client-side In-Memory Vector Search Engine
+        </div>
+    </footer>
+
+    <script>
+        let vectorDocs = [];
+
+        async function loadVectors() {
+            try {
+                const res = await fetch('./data/vectors.json?t=' + Date.now());
+                vectorDocs = await res.json();
+            } catch (e) {
+                console.error('Failed to load vectors.json', e);
+            }
+        }
+
+        function searchFor(query) {
+            document.getElementById('queryInput').value = query;
+            performSearch();
+        }
+
+        document.getElementById('queryInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        function createVector(text, dim = 128) {
+            const vec = new Float32Array(dim);
+            if (!text) return vec;
+            const tokens = text.toLowerCase().split(/[\s\t\n\r,.\(\)\[\]\{\}`#:\-]+/).filter(t => t.length > 0);
+            tokens.forEach(tok => {
+                let hash = 23;
+                for (let i = 0; i < tok.length; i++) {
+                    hash = (hash * 31 + tok.charCodeAt(i)) | 0;
+                }
+                const idx = Math.abs(hash % dim);
+                vec[idx] += (hash % 2 === 0 ? 1.0 : -1.0);
+            });
+            let norm = 0;
+            for (let i = 0; i < dim; i++) norm += vec[i] * vec[i];
+            norm = Math.sqrt(norm);
+            if (norm > 0.0001) {
+                for (let i = 0; i < dim; i++) vec[i] /= norm;
+            }
+            return vec;
+        }
+
+        function cosineSimilarity(a, b) {
+            const len = Math.min(a.length, b.length);
+            if (len === 0) return 0;
+            let dot = 0, magA = 0, magB = 0;
+            for (let i = 0; i < len; i++) {
+                dot += a[i] * b[i];
+                magA += a[i] * a[i];
+                magB += b[i] * b[i];
+            }
+            if (magA <= 0.000001 || magB <= 0.000001) return 0;
+            return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+        }
+
+        function performSearch() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) return;
+
+            const qVec = createVector(query, 128);
+            const scored = [];
+
+            vectorDocs.forEach(doc => {
+                if (!doc.Vector || doc.Vector.length === 0) return;
+                let sim = cosineSimilarity(qVec, doc.Vector);
+                
+                // 텍스트 토큰 일치 가산점
+                const qLower = query.toLowerCase();
+                const contentLower = (doc.Content || '').toLowerCase() + ' ' + (doc.SectionTitle || '').toLowerCase();
+                if (contentLower.includes(qLower)) sim += 0.3;
+
+                scored.push({ doc, score: sim });
+            });
+
+            scored.sort((a, b) => b.score - a.score);
+            const topResults = scored.slice(0, 10);
+
+            renderResults(topResults);
+        }
+
+        function getBadgeClass(id) {
+            switch ((id || '').toLowerCase()) {
+                case 'vscode': return 'badge-vscode';
+                case 'python': return 'badge-python';
+                case 'gemini': return 'badge-gemini';
+                case 'claude': return 'badge-claude';
+                case 'openai': return 'badge-openai';
+                default: return 'badge-default';
+            }
+        }
+
+        function renderResults(results) {
+            const area = document.getElementById('resultsArea');
+            const grid = document.getElementById('resultsGrid');
+            const count = document.getElementById('resultsCount');
+
+            area.style.display = 'block';
+            grid.innerHTML = '';
+            count.innerText = results.length;
+
+            if (results.length === 0) {
+                grid.innerHTML = '<div class="col-12"><div class="card p-5 text-center bg-white border-0 shadow-sm rounded-4"><h5 class="text-muted">일치하는 업데이트 섹션이 없습니다.</h5></div></div>';
+                return;
+            }
+
+            results.forEach(({ doc, score }) => {
+                const matchScore = Math.min(100, Math.max(0, Math.round(score * 100)));
+                const col = document.createElement('div');
+                col.className = 'col-12';
+
+                const tagsHtml = (doc.Tags || []).map(t => `<span class="tag-pill">#${t}</span>`).join('');
+                const pubDate = doc.PublishedAt ? new Date(doc.PublishedAt).toISOString().split('T')[0] : '';
+                const linkHtml = doc.Url ? `<a href="${doc.Url}" target="_blank" class="btn btn-sm btn-outline-primary">원문 확인 <i class="bi bi-arrow-right ms-1"></i></a>` : '';
+
+                col.innerHTML = `
+                    <div class="card card-custom bg-white p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="badge badge-target ${getBadgeClass(doc.TargetId)}">${doc.TargetName}</span>
+                                <span class="badge bg-secondary-subtle text-secondary">버전: ${doc.Version || ''}</span>
+                                <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>${pubDate}</small>
+                            </div>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
+                                <i class="bi bi-check-circle me-1"></i>유사도 ${matchScore}%
+                            </span>
+                        </div>
+                        <h5 class="fw-bold text-dark mt-1 mb-2">${doc.SectionTitle || '업데이트 내용'}</h5>
+                        <div class="mb-3">${tagsHtml}</div>
+                        <div class="bg-light p-3 rounded-3 text-secondary small font-monospace mb-3" style="white-space: pre-wrap; max-height: 200px; overflow-y: auto;">${doc.Content}</div>
+                        <div class="text-end">${linkHtml}</div>
+                    </div>
+                `;
+                grid.appendChild(col);
+            });
+        }
+
+        loadVectors();
+    </script>
+</body>
+</html>
