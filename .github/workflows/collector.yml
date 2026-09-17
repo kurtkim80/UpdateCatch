@@ -4,13 +4,10 @@ on:
   schedule:
     # 6시간마다 자동 실행 (UTC 기준 0시, 6시, 12시, 18시)
     - cron: '0 */6 * * *'
-  workflow_dispatch: # GitHub Actions 탭에서 수동 즉시 실행 가능
+  workflow_dispatch: # GitHub Actions 탭에서 수동 즉시 실행
   push:
     branches:
       - main
-    paths:
-      - 'targets.json'
-      - 'docs/**'
 
 permissions:
   contents: write
@@ -22,9 +19,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect-and-update:
+  collect-and-deploy:
     runs-on: ubuntu-latest
-    name: Collect Releases & Update Vector DB
+    name: Collect Releases & Deploy GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -50,7 +50,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/ docs/data/
           if git diff --staged --quiet; then
-            echo "No new updates found. Working tree clean."
+            echo "No new data changes. Working tree clean."
           else
             git commit -m "chore(auto): update releases and vector embeddings [skip ci]"
             git push
