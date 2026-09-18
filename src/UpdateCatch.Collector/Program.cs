@@ -88,6 +88,20 @@ Console.WriteLine($"\n[Storage] Saving {allReleases.Count} releases and {allDocu
 await vectorDb.UpsertReleasesAsync(allReleases);
 await vectorDb.UpsertDocumentsAsync(allDocuments);
 
+// 5. Save Status & Last Run Metadata
+var kstTime = DateTime.UtcNow.AddHours(9);
+var statusObj = new
+{
+    lastUpdatedUtc = DateTime.UtcNow.ToString("o"),
+    lastUpdatedKst = kstTime.ToString("yyyy-MM-dd HH:mm:ss"),
+    status = "Healthy",
+    totalTargets = targets.Count,
+    totalReleases = allReleases.Count,
+    totalVectors = allDocuments.Count
+};
+var statusJson = JsonSerializer.Serialize(statusObj, new JsonSerializerOptions { WriteIndented = true });
+await File.WriteAllTextAsync(Path.Combine(dataDir, "status.json"), statusJson);
+
 // Sync to docs/data for GitHub Pages live hosting
 var docsDataDir = Path.Combine(repoRoot, "docs", "data");
 if (Directory.Exists(Path.Combine(repoRoot, "docs")))
@@ -98,7 +112,7 @@ if (Directory.Exists(Path.Combine(repoRoot, "docs")))
         var dest = Path.Combine(docsDataDir, Path.GetFileName(file));
         File.Copy(file, dest, overwrite: true);
     }
-    Console.WriteLine($"[Storage] Synced data to {docsDataDir} for GitHub Pages!");
+    Console.WriteLine($"[Storage] Synced data & status to {docsDataDir} for GitHub Pages!");
 }
 
 Console.ForegroundColor = ConsoleColor.Green;
