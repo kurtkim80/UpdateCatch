@@ -1,8 +1,8 @@
 {
-  "lastUpdatedUtc": "2026-09-23T10:36:38.2630370Z",
-  "lastUpdatedKst": "2026-09-23 19:36:38",
+  "lastUpdatedUtc": "2026-09-23T15:57:27.0108119Z",
+  "lastUpdatedKst": "2026-09-24 00:57:27",
   "status": "Healthy",
   "totalTargets": 13,
-  "totalReleases": 32,
-  "totalVectors": 32
+  "totalReleases": 29,
+  "totalVectors": 29
 }
